@@ -2,7 +2,8 @@
 
 ### Setup
 
-Backend Repo found [here](https://github.com/brandonnguyenn27/blockhousedjango)
+Backend Repo found [here](https://github.com/brandonnguyenn27/blockhousedjango).
+
 First, navigate to the /djangoblockhouse directory and run "source venv/bin/activate" to activate the environment. Then run "python manage.py runserver" in your terminal. The server will be hosted under [127.0.0.1:8000](http://127.0.0.1:8000 "127.0.0.1:8000")
 
 To start up the NextJS frontend, you first need to have bun installed, which can be found here: [bun installation](https://bun.sh/docs/installation "bun installation")
