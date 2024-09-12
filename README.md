@@ -1,36 +1,28 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Take Home Assignment
 
-## Getting Started
+### Setup
 
-First, run the development server:
+First, navigate to the /djangoblockhouse directory and run "python manage.py runserver" in your terminal. The server will be hosted under [127.0.0.1:8000](http://127.0.0.1:8000 "127.0.0.1:8000")
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+To start up the NextJS frontend, you first need to have bun installed, which can be found here: [bun installation](https://bun.sh/docs/installation "bun installation")
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Navigate to the /blockhousetakehome directory and install dependencies by running "bun install"
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Start up the frontend by running "bun run dev" in your terminal. It will be hosted under [localhost:3000](http://localhost:3000 "localhost:3000")
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Libraries
 
-## Learn More
+I chose to use [recharts](https://recharts.org/en-US "recharts") for my custom charts due to their easy to read documentation and easy setup.
+Other than that, I used standard React and NextJS libraries to make this application.
 
-To learn more about Next.js, take a look at the following resources:
+### Design
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+At first, I mostly coded everything under the app/page.tsx file. However, upon seeing how convoluted the code got, I decided to split everything up and modulize my project.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+To begin, I separated the data fetching into a custom hook that would be called by the page. This data is used to populate the custom chart components I made.
 
-## Deploy on Vercel
+I then made 4 custom chart components for the line, pie, bar, and candlestick charts. These charts can be easily reused.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+My backend data is fetched through NextJS's built in routing endpoints to further protect my backend endpoints. Since my application is small scale, this doesn't affect performance much.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The DJango backend is all hardcoded data, and each chart's data can be accessed through the /api/{chart type} route. For example, [127.0.0.1:8000/api/candlestick-data/](http://127.0.0.1:8000/api/candlestick-data/ "127.0.0.1:8000/api/candlestick-data/") will return a JSON of the candlestick chart data.
